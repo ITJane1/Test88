@@ -4,677 +4,230 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
-    <title>日语五十音图</title>
+    <title>聊天移动UI</title>
   </head>
   <body>
-    <!-- 粉笔图案模式（pattern）定义, 来自： -->
-    <!-- https://codepen.io/shshaw/pen/jmMpmd -->
-    <svg style="display: none">
-      <filter id="chalk">
-        <feTurbulence
-          result="T"
-          numOctaves="3"
-          seed="0"
-          type="fractalNoise"
-          baseFrequency=".4"
-        />
-        <feOffset dy="-2" dx="-2" />
-        <feDisplacementMap
-          in2="T"
-          scale="5"
-          xChannelSelector="R"
-          yChannelSelector="G"
-          in="SourceGraphic"
-        />
-      </filter>
-    </svg>
-    <!-- 粉笔图案模式（pattern）定义结束 -->
-    <main>
-      <!-- 五十音图容器 -->
-      <div class="jp-grid">
-        <!-- 行元素 -->
-        <div class="row">
-          <!-- 发音单元格 -->
-          <div class="pro-card-wrapper">
-            <!-- 控制前、后翻转 -->
-            <div class="pro-card">
-              <!-- 平假名 -->
-              <div class="hiragana">
-                <div class="character">あ</div>
-                <div class="romaji">a</div>
-              </div>
-              <!-- 片假名 -->
-              <div class="katakana">
-                <div class="character">ア</div>
-                <div class="romaji">a</div>
-              </div>
+    <div class="container">
+      <div class="page">
+        <div class="main-panel">
+          <nav>
+            <div class="buttons">
+              <i class="fas fa-chevron-left fa-lg"></i>
+              <i class="fas fa-search fa-lg"></i>
             </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">い</div>
-                <div class="romaji">i</div>
-              </div>
-              <div class="katakana">
-                <div class="character">イ</div>
-                <div class="romaji">i</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">う</div>
-                <div class="romaji">u</div>
-              </div>
-              <div class="katakana">
-                <div class="character">ウ</div>
-                <div class="romaji">u</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">え</div>
-                <div class="romaji">e</div>
-              </div>
-              <div class="katakana">
-                <div class="character">エ</div>
-                <div class="romaji">e</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">お</div>
-                <div class="romaji">o</div>
-              </div>
-              <div class="katakana">
-                <div class="character">オ</div>
-                <div class="romaji">o</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">か</div>
-                <div class="romaji">ka</div>
-              </div>
-              <div class="katakana">
-                <div class="character">カ</div>
-                <div class="romaji">ka</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">き</div>
-                <div class="romaji">ki</div>
-              </div>
-              <div class="katakana">
-                <div class="character">キ</div>
-                <div class="romaji">ki</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">く</div>
-                <div class="romaji">ku</div>
-              </div>
-              <div class="katakana">
-                <div class="character">ク</div>
-                <div class="romaji">ku</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">け</div>
-                <div class="romaji">ke</div>
-              </div>
-              <div class="katakana">
-                <div class="character">ケ</div>
-                <div class="romaji">ke</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">こ</div>
-                <div class="romaji">ko</div>
-              </div>
-              <div class="katakana">
-                <div class="character">コ</div>
-                <div class="romaji">ko</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">さ</div>
-                <div class="romaji">sa</div>
-              </div>
-              <div class="katakana">
-                <div class="character">サ</div>
-                <div class="romaji">sa</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">し</div>
-                <div class="romaji">shi</div>
-              </div>
-              <div class="katakana">
-                <div class="character">シ</div>
-                <div class="romaji">shi</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">す</div>
-                <div class="romaji">su</div>
-              </div>
-              <div class="katakana">
-                <div class="character">ス</div>
-                <div class="romaji">su</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">せ</div>
-                <div class="romaji">se</div>
-              </div>
-              <div class="katakana">
-                <div class="character">セ</div>
-                <div class="romaji">se</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">そ</div>
-                <div class="romaji">so</div>
-              </div>
-              <div class="katakana">
-                <div class="character">ソ</div>
-                <div class="romaji">so</div>
-              </div>
-            </div>
-          </div>
-        </div>
+            <ul class="menu">
+              <li class="active">
+                消息列表
+              </li>
+              <li>我的好友</li>
+              <li>我的群聊</li>
+            </ul>
+          </nav>
 
-        <div class="row">
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">た</div>
-                <div class="romaji">ta</div>
+          <!-- 常用联系人面板 -->
+          <section class="middle-panel">
+            <div class="favorite">
+              <div class="favorite-menu">
+                <span>常用联系人</span>
+                <i class="fas fa-ellipsis-h"></i>
               </div>
-              <div class="katakana">
-                <div class="character">タ</div>
-                <div class="romaji">ta</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">ち</div>
-                <div class="romaji">chi</div>
-              </div>
-              <div class="katakana">
-                <div class="character">チ</div>
-                <div class="romaji">chi</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">つ</div>
-                <div class="romaji">tsu</div>
-              </div>
-              <div class="katakana">
-                <div class="character">ツ</div>
-                <div class="romaji">tsu</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">て</div>
-                <div class="romaji">te</div>
-              </div>
-              <div class="katakana">
-                <div class="character">テ</div>
-                <div class="romaji">te</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">と</div>
-                <div class="romaji">to</div>
-              </div>
-              <div class="katakana">
-                <div class="character">ト</div>
-                <div class="romaji">to</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">な</div>
-                <div class="romaji">na</div>
-              </div>
-              <div class="katakana">
-                <div class="character">ナ</div>
-                <div class="romaji">na</div>
+              <div class="people">
+                <div class="profile">
+                  <img
+                    src="https://randomuser.me/api/portraits/men/32.jpg"
+                    alt="头像"
+                    class="profile-image"
+                  />
+                  <div class="profile-name">
+                    张展鸣
+                  </div>
+                </div>
+                <div class="profile">
+                  <img
+                    src="https://images.unsplash.com/photo-1510227272981-87123e259b17?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=3759e09a5b9fbe53088b23c615b6312e"
+                    alt="头像"
+                    class="profile-image"
+                  />
+                  <div class="profile-name">
+                    李冷菱
+                  </div>
+                </div>
+                <div class="profile">
+                  <img
+                    src="https://tinyfac.es/data/avatars/475605E3-69C5-4D2B-8727-61B7BB8C4699-500w.jpeg"
+                    alt="头像"
+                    class="profile-image"
+                  />
+                  <div class="profile-name">
+                    赵智涵
+                  </div>
+                </div>
+                <div class="profile">
+                  <img
+                    src="https://randomuser.me/api/portraits/women/44.jpg"
+                    alt="头像"
+                    class="profile-image"
+                  />
+                  <div class="profile-name">
+                    王妙夢
+                  </div>
+                </div>
+                <div class="profile">
+                  <img
+                    src="https://images-na.ssl-images-amazon.com/images/M/MV5BMjA3NjYzMzE1MV5BMl5BanBnXkFtZTgwNTA4NDY4OTE@._V1_UX172_CR0,0,172,256_AL_.jpg"
+                    alt="头像"
+                    class="profile-image"
+                  />
+                  <div class="profile-name">
+                    张雪宁
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">に</div>
-                <div class="romaji">ni</div>
+          </section>
+          <!-- 聊天面板 -->
+          <section class="message-panel">
+            <div class="mask"></div>
+            <div class="messages">
+              <div class="message">
+                <img
+                  src="https://randomuser.me/api/portraits/men/97.jpg"
+                  alt=""
+                />
+
+                <div class="info">
+                  <div class="name">
+                    张智晨
+                  </div>
+                  <div class="content">
+                    哈喽，今天打算干什么？
+                  </div>
+                </div>
+                <div class="time">
+                  2019/12/12
+                </div>
               </div>
-              <div class="katakana">
-                <div class="character">ニ</div>
-                <div class="romaji">ni</div>
+
+              <div class="message">
+                <img
+                  src="https://randomuser.me/api/portraits/men/86.jpg"
+                  alt=""
+                />
+
+                <div class="info">
+                  <div class="name">
+                    李萌
+                  </div>
+                  <div class="content">
+                    下午到我办公室来一趟
+                  </div>
+                </div>
+                <div class="time">
+                  昨天
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">ぬ</div>
-                <div class="romaji">nu</div>
+              <div class="message">
+                <img
+                  src="https://randomuser.me/api/portraits/men/22.jpg"
+                  alt=""
+                />
+
+                <div class="info">
+                  <div class="name">
+                    张显
+                  </div>
+                  <div class="content">
+                    晚上到我家来玩呀
+                  </div>
+                </div>
+                <div class="time">
+                  昨天
+                </div>
               </div>
-              <div class="katakana">
-                <div class="character">ヌ</div>
-                <div class="romaji">nu</div>
+              <div class="message">
+                <img
+                  src="https://pbs.twimg.com/profile_images/1054434556156162054/1H_7AxP0.jpg"
+                  alt=""
+                />
+
+                <div class="info">
+                  <div class="name">
+                    王奇
+                  </div>
+                  <div class="content">
+                    我跟你说，昨天发生了一件很奇妙的事
+                  </div>
+                </div>
+                <div class="time">
+                  8:30
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">ね</div>
-                <div class="romaji">ne</div>
+              <div class="message">
+                <img
+                  src="https://images.unsplash.com/photo-1456327102063-fb5054efe647?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=f05c14dd4db49f08a789e6449604c490"
+                  alt=""
+                />
+
+                <div class="info">
+                  <div class="name">
+                    李明
+                  </div>
+                  <div class="content">
+                    定于后天下午聚餐
+                  </div>
+                </div>
+                <div class="time">
+                  8:45
+                </div>
               </div>
-              <div class="katakana">
-                <div class="character">ネ</div>
-                <div class="romaji">ne</div>
+              <div class="message">
+                <img
+                  src="https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                  alt=""
+                />
+
+                <div class="info">
+                  <div class="name">
+                    王雨凡
+                  </div>
+                  <div class="content">
+                    下午去洗车，然后去商场
+                  </div>
+                </div>
+                <div class="time">
+                  8:50
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">の</div>
-                <div class="romaji">no</div>
-              </div>
-              <div class="katakana">
-                <div class="character">ノ</div>
-                <div class="romaji">no</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">は</div>
-                <div class="romaji">ha</div>
-              </div>
-              <div class="katakana">
-                <div class="character">ハ</div>
-                <div class="romaji">ha</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">ひ</div>
-                <div class="romaji">hi</div>
-              </div>
-              <div class="katakana">
-                <div class="character">ヒ</div>
-                <div class="romaji">hi</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">ふ</div>
-                <div class="romaji">fu</div>
-              </div>
-              <div class="katakana">
-                <div class="character">フ</div>
-                <div class="romaji">fu</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">へ</div>
-                <div class="romaji">he</div>
-              </div>
-              <div class="katakana">
-                <div class="character">ヘ</div>
-                <div class="romaji">he</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">ほ</div>
-                <div class="romaji">ho</div>
-              </div>
-              <div class="katakana">
-                <div class="character">ホ</div>
-                <div class="romaji">ho</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">ま</div>
-                <div class="romaji">ma</div>
-              </div>
-              <div class="katakana">
-                <div class="character">マ</div>
-                <div class="romaji">ma</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">み</div>
-                <div class="romaji">mi</div>
-              </div>
-              <div class="katakana">
-                <div class="character">ミ</div>
-                <div class="romaji">mi</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">む</div>
-                <div class="romaji">mu</div>
-              </div>
-              <div class="katakana">
-                <div class="character">ム</div>
-                <div class="romaji">mu</div>
+              <div class="message new">
+                <img
+                  src="https://randomuser.me/api/portraits/women/63.jpg"
+                  alt=""
+                />
+
+                <div class="info">
+                  <div class="name">
+                    陈雪峰
+                  </div>
+                  <div class="content">
+                    对，是这样的
+                  </div>
+                </div>
+                <div class="time">
+                  9:30
+                  <div class="new-message-icon">
+                    新消息
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">め</div>
-                <div class="romaji">me</div>
-              </div>
-              <div class="katakana">
-                <div class="character">メ</div>
-                <div class="romaji">me</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">も</div>
-                <div class="romaji">mo</div>
-              </div>
-              <div class="katakana">
-                <div class="character">モ</div>
-                <div class="romaji">mo</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">や</div>
-                <div class="romaji">ya</div>
-              </div>
-              <div class="katakana">
-                <div class="character">ヤ</div>
-                <div class="romaji">ya</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">い</div>
-                <div class="romaji">i</div>
-              </div>
-              <div class="katakana">
-                <div class="character">イ</div>
-                <div class="romaji">i</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">ゆ</div>
-                <div class="romaji">yu</div>
-              </div>
-              <div class="katakana">
-                <div class="character">ユ</div>
-                <div class="romaji">yu</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">え</div>
-                <div class="romaji">e</div>
-              </div>
-              <div class="katakana">
-                <div class="character">エ</div>
-                <div class="romaji">e</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">よ</div>
-                <div class="romaji">yo</div>
-              </div>
-              <div class="katakana">
-                <div class="character">ヨ</div>
-                <div class="romaji">yo</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">ら</div>
-                <div class="romaji">ra</div>
-              </div>
-              <div class="katakana">
-                <div class="character">ラ</div>
-                <div class="romaji">ra</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">り</div>
-                <div class="romaji">ri</div>
-              </div>
-              <div class="katakana">
-                <div class="character">リ</div>
-                <div class="romaji">ri</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">る</div>
-                <div class="romaji">ru</div>
-              </div>
-              <div class="katakana">
-                <div class="character">ル</div>
-                <div class="romaji">ru</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">れ</div>
-                <div class="romaji">re</div>
-              </div>
-              <div class="katakana">
-                <div class="character">レ</div>
-                <div class="romaji">re</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">ろ</div>
-                <div class="romaji">ro</div>
-              </div>
-              <div class="katakana">
-                <div class="character">ロ</div>
-                <div class="romaji">ro</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">わ</div>
-                <div class="romaji">wa</div>
-              </div>
-              <div class="katakana">
-                <div class="character">ワ</div>
-                <div class="romaji">wa</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">い</div>
-                <div class="romaji">i</div>
-              </div>
-              <div class="katakana">
-                <div class="character">イ</div>
-                <div class="romaji">i</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">う</div>
-                <div class="romaji">u</div>
-              </div>
-              <div class="katakana">
-                <div class="character">ウ</div>
-                <div class="romaji">u</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">え</div>
-                <div class="romaji">e</div>
-              </div>
-              <div class="katakana">
-                <div class="character">エ</div>
-                <div class="romaji">e</div>
-              </div>
-            </div>
-          </div>
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">を</div>
-                <div class="romaji">o</div>
-              </div>
-              <div class="katakana">
-                <div class="character">ヲ</div>
-                <div class="romaji">o</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="pro-card-wrapper">
-            <div class="pro-card">
-              <div class="hiragana">
-                <div class="character">ん</div>
-                <div class="romaji">n</div>
-              </div>
-              <div class="katakana">
-                <div class="character">ン</div>
-                <div class="romaji">n</div>
-              </div>
-            </div>
-          </div>
+          </section>
         </div>
       </div>
-      <!-- 五十音图结束 -->
-    </main>
+    </div>
   </body>
 </html>
